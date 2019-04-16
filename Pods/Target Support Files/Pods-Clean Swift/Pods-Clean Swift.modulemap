@@ -1,6 +1,0 @@
-framework module Pods_Clean_Swift {
-  umbrella header "Pods-Clean Swift-umbrella.h"
-
-  export *
-  module * { export * }
-}

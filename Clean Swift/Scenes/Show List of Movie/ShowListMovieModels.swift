@@ -30,39 +30,39 @@ enum MovieModel
         var original_title       :String?
         
         
-//        init(from decoder: Decoder) throws {
-//            let values = try decoder.container(keyedBy: CodingKeys.self)
-//
-//            voteCount  = try values.decode(Int.self, forKey: .voteCount)
-//            id = try values.decode(Int.self, forKey: .id)
-//            video = try values.decode(Bool.self, forKey: .video)
-//            voteAverage = try values.decode(Double.self, forKey: .voteAverage)
-//            title = try values.decode(String.self, forKey: .title)
-//            popularity = try values.decode(Double.self, forKey: .popularity)
-//            posterPath = try values.decode(String.self, forKey: .posterPath)
-//            originalLanguage = try values.decode(String.self, forKey: .originalLanguage)
-//            originalTitle = try values.decode(String.self, forKey: .originalTitle)
-//        }
-////
-//        func encode(to encoder: Encoder) throws {
-//
-//        }
-//
-//        enum CodingKeys:String,CodingKey
-//        {
-//            //will get renamed
-//            case voteCount = "vote_count"
-//            //will not get renamed
-//            case adult
-//            case id
-//            case video
-//            case voteAverage        = ""
-//            case title
-//            case popularity
-//            case posterPath         = "poster_path"
-//            case originalLanguage   = "original_language"
-//            case originalTitle      = "original_title"
-//        }
+        //        init(from decoder: Decoder) throws {
+        //            let values = try decoder.container(keyedBy: CodingKeys.self)
+        //
+        //            voteCount  = try values.decode(Int.self, forKey: .voteCount)
+        //            id = try values.decode(Int.self, forKey: .id)
+        //            video = try values.decode(Bool.self, forKey: .video)
+        //            voteAverage = try values.decode(Double.self, forKey: .voteAverage)
+        //            title = try values.decode(String.self, forKey: .title)
+        //            popularity = try values.decode(Double.self, forKey: .popularity)
+        //            posterPath = try values.decode(String.self, forKey: .posterPath)
+        //            originalLanguage = try values.decode(String.self, forKey: .originalLanguage)
+        //            originalTitle = try values.decode(String.self, forKey: .originalTitle)
+        //        }
+        ////
+        //        func encode(to encoder: Encoder) throws {
+        //
+        //        }
+        //
+        //        enum CodingKeys:String,CodingKey
+        //        {
+        //            //will get renamed
+        //            case voteCount = "vote_count"
+        //            //will not get renamed
+        //            case adult
+        //            case id
+        //            case video
+        //            case voteAverage        = ""
+        //            case title
+        //            case popularity
+        //            case posterPath         = "poster_path"
+        //            case originalLanguage   = "original_language"
+        //            case originalTitle      = "original_title"
+        //        }
         
     }
     
