@@ -35,14 +35,6 @@
 		79D1C9F12255C1D200F35E89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D1C9EF2255C1D200F35E89 /* LaunchScreen.storyboard */; };
 		79D1C9FC2255C1D300F35E89 /* Clean_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1C9FB2255C1D300F35E89 /* Clean_SwiftTests.swift */; };
 		79D1CA072255C1D300F35E89 /* Clean_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA062255C1D300F35E89 /* Clean_SwiftUITests.swift */; };
-		79D1CA182255C82A00F35E89 /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA172255C82A00F35E89 /* CreateOrderViewController.swift */; };
-		79D1CA1A2255C83E00F35E89 /* CreateOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA192255C83E00F35E89 /* CreateOrderInteractor.swift */; };
-		79D1CA1C2255C85100F35E89 /* CreateOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA1B2255C85100F35E89 /* CreateOrderPresenter.swift */; };
-		79D1CA1E2255C86300F35E89 /* CreateOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA1D2255C86300F35E89 /* CreateOrderRouter.swift */; };
-		79D1CA202255C87100F35E89 /* CreateOrderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA1F2255C87100F35E89 /* CreateOrderConfigurator.swift */; };
-		79D1CA222255C87D00F35E89 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA212255C87D00F35E89 /* CreateOrderWorker.swift */; };
-		79D1CA242255C88B00F35E89 /* CreateOrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CA232255C88B00F35E89 /* CreateOrderModels.swift */; };
-		79D1CA272255E6F600F35E89 /* CreateOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D1CA262255E6F600F35E89 /* CreateOrder.storyboard */; };
 		79E2CFA6225CE2510074E502 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CFA5225CE2510074E502 /* Enums.swift */; };
 		79E9E72222607AEA0096381F /* MovieDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E9E72022607AEA0096381F /* MovieDescriptionTableViewCell.swift */; };
 		79E9E72322607AEA0096381F /* MovieDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E9E72122607AEA0096381F /* MovieDescriptionTableViewCell.xib */; };
@@ -104,14 +96,6 @@
 		79D1CA022255C1D300F35E89 /* Clean SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clean SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D1CA062255C1D300F35E89 /* Clean_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clean_SwiftUITests.swift; sourceTree = "<group>"; };
 		79D1CA082255C1D300F35E89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79D1CA172255C82A00F35E89 /* CreateOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderViewController.swift; sourceTree = "<group>"; };
-		79D1CA192255C83E00F35E89 /* CreateOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderInteractor.swift; sourceTree = "<group>"; };
-		79D1CA1B2255C85100F35E89 /* CreateOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderPresenter.swift; sourceTree = "<group>"; };
-		79D1CA1D2255C86300F35E89 /* CreateOrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderRouter.swift; sourceTree = "<group>"; };
-		79D1CA1F2255C87100F35E89 /* CreateOrderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderConfigurator.swift; sourceTree = "<group>"; };
-		79D1CA212255C87D00F35E89 /* CreateOrderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderWorker.swift; sourceTree = "<group>"; };
-		79D1CA232255C88B00F35E89 /* CreateOrderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderModels.swift; sourceTree = "<group>"; };
-		79D1CA262255E6F600F35E89 /* CreateOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateOrder.storyboard; sourceTree = "<group>"; };
 		79E2CFA5225CE2510074E502 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		79E9E72022607AEA0096381F /* MovieDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		79E9E72122607AEA0096381F /* MovieDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDescriptionTableViewCell.xib; sourceTree = "<group>"; };
@@ -268,39 +252,15 @@
 		79D1CA142255C22700F35E89 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				79D1CA152255C23A00F35E89 /* Create Order */,
-				79D1CA162255C24000F35E89 /* Delete Order */,
 				79403484225F64A500DA8F60 /* Show Detail Movie */,
 				79AF11DF22570F76006E5502 /* Show List of Movie */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		79D1CA152255C23A00F35E89 /* Create Order */ = {
-			isa = PBXGroup;
-			children = (
-				79D1CA1F2255C87100F35E89 /* CreateOrderConfigurator.swift */,
-				79D1CA192255C83E00F35E89 /* CreateOrderInteractor.swift */,
-				79D1CA232255C88B00F35E89 /* CreateOrderModels.swift */,
-				79D1CA1B2255C85100F35E89 /* CreateOrderPresenter.swift */,
-				79D1CA1D2255C86300F35E89 /* CreateOrderRouter.swift */,
-				79D1CA172255C82A00F35E89 /* CreateOrderViewController.swift */,
-				79D1CA212255C87D00F35E89 /* CreateOrderWorker.swift */,
-			);
-			path = "Create Order";
-			sourceTree = "<group>";
-		};
-		79D1CA162255C24000F35E89 /* Delete Order */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Delete Order";
-			sourceTree = "<group>";
-		};
 		79D1CA252255E6D800F35E89 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				79D1CA262255E6F600F35E89 /* CreateOrder.storyboard */,
 				79AF11F82257379F006E5502 /* Movie.storyboard */,
 			);
 			path = Storyboard;
@@ -465,7 +425,6 @@
 			files = (
 				79D1C9F12255C1D200F35E89 /* LaunchScreen.storyboard in Resources */,
 				7940A3D922603DAF003A3C0F /* HeaderTableViewCell.xib in Resources */,
-				79D1CA272255E6F600F35E89 /* CreateOrder.storyboard in Resources */,
 				79E9E72322607AEA0096381F /* MovieDescriptionTableViewCell.xib in Resources */,
 				79E9E72722607AFA0096381F /* MovieDetailsTableViewCell.xib in Resources */,
 				79AF11FE22573E3E006E5502 /* ListMovieTableViewCell.xib in Resources */,
@@ -599,15 +558,10 @@
 				79AF11FD22573E3E006E5502 /* ListMovieTableViewCell.swift in Sources */,
 				7940348B225F64C500DA8F60 /* ShowDetailMoviePresenter.swift in Sources */,
 				79E9E72A22607B0E0096381F /* MovieCastCrewTableViewCell.swift in Sources */,
-				79D1CA1C2255C85100F35E89 /* CreateOrderPresenter.swift in Sources */,
 				79E9E72222607AEA0096381F /* MovieDescriptionTableViewCell.swift in Sources */,
 				79AF11F422570FD5006E5502 /* ShowListMovieRouter.swift in Sources */,
-				79D1CA1A2255C83E00F35E89 /* CreateOrderInteractor.swift in Sources */,
-				79D1CA242255C88B00F35E89 /* CreateOrderModels.swift in Sources */,
 				79AF11F322570FD5006E5502 /* ShowListMovieWorker.swift in Sources */,
-				79D1CA182255C82A00F35E89 /* CreateOrderViewController.swift in Sources */,
 				79AF11F722570FD5006E5502 /* ShowListMovieInteractor.swift in Sources */,
-				79D1CA222255C87D00F35E89 /* CreateOrderWorker.swift in Sources */,
 				79AF11F222570FD5006E5502 /* ShowListMoviePresenter.swift in Sources */,
 				79D1C9E72255C1D100F35E89 /* AppDelegate.swift in Sources */,
 				79403490225F64C500DA8F60 /* ShowDetailMovieInteractor.swift in Sources */,
@@ -621,8 +575,6 @@
 				79AF11F522570FD5006E5502 /* ShowListMovieModels.swift in Sources */,
 				7940A3D822603DAF003A3C0F /* HeaderTableViewCell.swift in Sources */,
 				79E2CFA6225CE2510074E502 /* Enums.swift in Sources */,
-				79D1CA202255C87100F35E89 /* CreateOrderConfigurator.swift in Sources */,
-				79D1CA1E2255C86300F35E89 /* CreateOrderRouter.swift in Sources */,
 				79AF120122573EB0006E5502 /* MovieCollectionViewCell.swift in Sources */,
 				7940348C225F64C500DA8F60 /* ShowDetailMovieWorker.swift in Sources */,
 			);
