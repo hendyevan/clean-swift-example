@@ -98,17 +98,18 @@ enum MovieModel
     
     struct Request
     {
-        //            var params : Params = Params()
-        //
-        //            init() {
-        //                self.params["api_key"]          = "2280e7e3fb062bd9ef00f3b40a1f8746"
-        //                self.params["language"]         = "en-US"
-        //                self.params["sort_by"]          = "popularity.desc"
-        //                self.params["include_adult"]    = false
-        //                self.params["include_video"]    = false
-        //                self.params["page"]             = 1
-        //            }
+        var params : Params = Params()
+        
+        init(apiKey: String, language: String, sortBy: String, isAdult: Bool, includeVideo: Bool, page: Int) {
+            self.params["api_key"]          = apiKey
+            self.params["language"]         = language
+            self.params["sort_by"]          = sortBy
+            self.params["include_adult"]    = isAdult
+            self.params["include_video"]    = includeVideo
+            self.params["page"]             = page
+        }
     }
+    
     struct Response
     {
         var listMovie : [Movie2]?

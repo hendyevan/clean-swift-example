@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Show List Movie View Controller-->
+        <!--List Movie View Controller-->
         <scene sceneID="hyX-0a-mqN">
             <objects>
-                <viewController storyboardIdentifier="ListMovieVC" id="1Ap-xZ-4Ef" customClass="ShowListMovieViewController" customModule="Clean_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListMovieVC" id="1Ap-xZ-4Ef" customClass="ListMovieViewController" customModule="Clean_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yUi-Di-Jfg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="-548" y="-147.07646176911544"/>
         </scene>
-        <!--Show Detail Movie View Controller-->
+        <!--Detail Movie View Controller-->
         <scene sceneID="ncn-2O-sHC">
             <objects>
-                <viewController storyboardIdentifier="DetailMovieVC" id="Ms4-op-3ke" customClass="ShowDetailMovieViewController" customModule="Clean_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailMovieVC" id="Ms4-op-3ke" customClass="DetailMovieViewController" customModule="Clean_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h5t-8s-xd1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

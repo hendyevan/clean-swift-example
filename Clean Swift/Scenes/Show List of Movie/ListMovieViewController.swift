@@ -12,51 +12,17 @@
 
 import UIKit
 
-protocol ShowListMovieDisplayLogic: class
+/**
+ Class to control the table view of the scene.
+ */
+class ListMovieViewController: UIViewController
 {
-    func displayUpcomingMovie(viewModel: MovieModel.ViewModel)
-    func displayNowPlayingMovie(viewModel: MovieModel.ViewModel)
-    func displayDetailMovie(viewModel: MovieModel.ViewModel)
-}
-
-class ShowListMovieViewController: UIViewController
-{
-    var interactor: ShowListMovieBusinessLogic?
-    var router: (NSObjectProtocol & ShowListMovieRoutingLogic & ShowListMovieDataPassing)?
+    var output: ListMovieInteractorInput!
+    var router: ListMovieRouter!
     
     @IBOutlet weak var movieListTableView: UITableView!
     
     var movieHeader = ["Now Showing", "Upcoming"]
-    
-    // MARK: Object lifecycle
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-    {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    // MARK: Setup
-    
-    private func setup()
-    {
-        let viewController = self
-        let interactor = ShowListMovieInteractor()
-        let presenter = ShowListMoviePresenter()
-        let router = ShowListMovieRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-    }
     
     // MARK: Routing
     
@@ -79,7 +45,7 @@ class ShowListMovieViewController: UIViewController
     {
         super.viewDidLoad()
         
-        
+        ListMovieConfigurator.sharedInstance.configure(viewController: self)
         
         movieListTableView.register(UINib(nibName: "ListMovieTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
         movieListTableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
@@ -108,32 +74,33 @@ class ShowListMovieViewController: UIViewController
     // MARK: Do something
     
     func getUpcomingMovie(){
-        interactor?.getUpcomingMovie()
+        output.getUpcomingMovie()
     }
     
     func getNowPlayingMovie(){
-        interactor?.getNowPlayingMovie()
+        output.getNowPlayingMovie()
     }
 }
 
-extension ShowListMovieViewController: ShowListMovieDisplayLogic {
+extension ListMovieViewController: ListMoviePresenterOutput {
     
-    func displayUpcomingMovie(viewModel: MovieModel.ViewModel) {
-        upcomingMovie = viewModel.listMovie!
+    func displayUpcomingMovie(response: MovieModel.ViewModel) {
+        upcomingMovie = response.listMovie!
         self.movieListTableView.reloadData()
     }
     
-    func displayNowPlayingMovie(viewModel: MovieModel.ViewModel) {
-        nowPlayingMovie = viewModel.listMovie!
+    func displayNowPlayingMovie(response: MovieModel.ViewModel) {
+        nowPlayingMovie = response.listMovie!
         self.movieListTableView.reloadData()
     }
     
-    func displayDetailMovie(viewModel: MovieModel.ViewModel) {
+    func displayDetailMovie(response: MovieModel.ViewModel) {
         router?.routeToDetailMovie()
     }
+    
 }
 
-extension ShowListMovieViewController: UITableViewDataSource, UITableViewDelegate {
+extension ListMovieViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -169,14 +136,10 @@ extension ShowListMovieViewController: UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
 }
 
-extension ShowListMovieViewController: MovieSelection {
+extension ListMovieViewController: MovieSelection {
     func didSelectMovie(_ movie: MovieModel.Movie2) {
-        interactor?.showDetail(movie: movie)
+        output.showDetail(movie: movie)
     }
 }

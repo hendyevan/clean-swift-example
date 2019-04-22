@@ -12,39 +12,39 @@
 
 import UIKit
 
-protocol ShowListMovieBusinessLogic
-{
+// MARK: Boundary protocols
+protocol ListMovieInteractorInput {
     func getListMovie()
     func getNowPlayingMovie()
     func getUpcomingMovie()
     func showDetail(movie: MovieModel.Movie2)
 }
 
-protocol ShowListMovieDataStore
+protocol ListMovieInteractorOutput {
+    func presentNowPlayingMovie(response: MovieModel.ViewModel)
+    func presentUpcomingMovie(response: MovieModel.ViewModel)
+    func presentDetailMovie(response: MovieModel.ViewModel)
+}
+
+protocol ListMovieDataStore
 {
     //var name: String { get set }
     var detailMovie: MovieModel.Movie2? { get set }
 }
 
-class ShowListMovieInteractor: ShowListMovieBusinessLogic, ShowListMovieDataStore
+class ListMovieInteractor: ListMovieInteractorInput, ListMovieDataStore
 {
     var detailMovie: MovieModel.Movie2?
     
-    var presenter: ShowListMoviePresentationLogic?
-    var worker: ShowListMovieWorker?
+    var output: ListMovieInteractorOutput!
+    var worker: ListMovieWorker?
     
     // MARK: Do something
     
     func getListMovie() {
-        var params = [String:Any]()
-        params["api_key"]  = "2280e7e3fb062bd9ef00f3b40a1f8746"
-        params["language"] = "en-US"
-        params["sort_by"]  = "popularity.desc"
-        params["include_adult"] = false
-        params["include_video"] = false
-        params["page"] = 1
+        let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
-        worker = ShowListMovieWorker()
+        worker = ListMovieWorker()
         worker?.generateMovieList(param: params){ result in
             switch result {
             case .success(let movieList):
@@ -58,17 +58,14 @@ class ShowListMovieInteractor: ShowListMovieBusinessLogic, ShowListMovieDataStor
     }
     
     func getNowPlayingMovie() {
-        var params = [String:Any]()
-        params["api_key"]  = "2280e7e3fb062bd9ef00f3b40a1f8746"
-        params["language"] = "en-US"
-        params["sort_by"]  = "popularity.desc"
+        let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
-        worker = ShowListMovieWorker()
+        worker = ListMovieWorker()
         worker?.fetchNowPlayingMovie(param: params){ result in
             switch result {
             case .success(let movieList):
                 let response = MovieModel.ViewModel(listMovie: movieList, movie: nil)
-                self.presenter?.presentNowPlayingMovie(response: response)
+                self.output.presentNowPlayingMovie(response: response)
             case .failure(_):
                 break
             }
@@ -76,17 +73,14 @@ class ShowListMovieInteractor: ShowListMovieBusinessLogic, ShowListMovieDataStor
     }
     
     func getUpcomingMovie() {
-        var params = [String:Any]()
-        params["api_key"]  = "2280e7e3fb062bd9ef00f3b40a1f8746"
-        params["language"] = "en-US"
-        params["sort_by"]  = "popularity.desc"
+        let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
-        worker = ShowListMovieWorker()
+        worker = ListMovieWorker()
         worker?.fetchUpcomingMovie(param: params){ result in
             switch result {
             case .success(let movieList):
                 let response = MovieModel.ViewModel(listMovie: movieList, movie: nil)
-                self.presenter?.presentUpcomingMovie(response: response)
+                self.output.presentUpcomingMovie(response: response)
             case .failure(_):
                 break
             }
@@ -96,6 +90,6 @@ class ShowListMovieInteractor: ShowListMovieBusinessLogic, ShowListMovieDataStor
     func showDetail(movie: MovieModel.Movie2) {
         self.detailMovie = movie
         let response = MovieModel.ViewModel(listMovie: nil, movie: movie)
-        presenter?.presentDetailMovie(response: response)
+        output.presentDetailMovie(response: response)
     }
 }

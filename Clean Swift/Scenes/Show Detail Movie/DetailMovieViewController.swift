@@ -12,15 +12,15 @@
 
 import UIKit
 
-protocol ShowDetailMovieDisplayLogic: class
+protocol DetailMovieDisplayLogic: class
 {
-    func displayDetailMovie(viewModel: ShowDetailMovie.Something.ViewModel)
+    func displayDetailMovie(viewModel: DetailMovie.Something.ViewModel)
 }
 
-class ShowDetailMovieViewController: UIViewController
+class DetailMovieViewController: UIViewController
 {
-    var interactor: ShowDetailMovieBusinessLogic?
-    var router: (NSObjectProtocol & ShowDetailMovieRoutingLogic & ShowDetailMovieDataPassing)?
+    var interactor: DetailMovieBusinessLogic?
+    var router: (NSObjectProtocol & DetailMovieRoutingLogic & DetailMovieDataPassing)?
     var movie: MovieModel.Movie2?
     @IBOutlet weak var tableView: UITableView!
     
@@ -43,9 +43,9 @@ class ShowDetailMovieViewController: UIViewController
     private func setup()
     {
         let viewController = self
-        let interactor = ShowDetailMovieInteractor()
-        let presenter = ShowDetailMoviePresenter()
-        let router = ShowDetailMovieRouter()
+        let interactor = DetailMovieInteractor()
+        let presenter = DetailMoviePresenter()
+        let router = DetailMovieRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -100,7 +100,7 @@ class ShowDetailMovieViewController: UIViewController
     
 }
 
-extension ShowDetailMovieViewController: UITableViewDelegate, UITableViewDataSource {
+extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -130,8 +130,8 @@ extension ShowDetailMovieViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
-extension ShowDetailMovieViewController: ShowDetailMovieDisplayLogic{
-    func displayDetailMovie(viewModel: ShowDetailMovie.Something.ViewModel) {
+extension DetailMovieViewController: DetailMovieDisplayLogic{
+    func displayDetailMovie(viewModel: DetailMovie.Something.ViewModel) {
         self.movie = viewModel.movie
         self.tableView.reloadData()
     }

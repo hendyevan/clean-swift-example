@@ -12,19 +12,19 @@
 
 import UIKit
 
-protocol ShowDetailMoviePresentationLogic
+protocol DetailMoviePresentationLogic
 {
-    func presentMovie(response: ShowDetailMovie.Something.Response)
+    func presentMovie(response: DetailMovie.Something.Response)
 }
 
-class ShowDetailMoviePresenter: ShowDetailMoviePresentationLogic
+class DetailMoviePresenter: DetailMoviePresentationLogic
 {
-    weak var viewController: ShowDetailMovieDisplayLogic?
+    weak var viewController: DetailMovieDisplayLogic?
     
     // MARK: Do something
     
-    func presentMovie(response: ShowDetailMovie.Something.Response) {
-        let viewModel = ShowDetailMovie.Something.ViewModel(movie: response.movie)
+    func presentMovie(response: DetailMovie.Something.Response) {
+        let viewModel = DetailMovie.Something.ViewModel(movie: response.movie)
         viewController?.displayDetailMovie(viewModel: viewModel)
     }
 }

@@ -12,27 +12,27 @@
 
 import UIKit
 
-protocol ShowDetailMovieBusinessLogic
+protocol DetailMovieBusinessLogic
 {
     func showDetailMovie()
 }
 
-protocol ShowDetailMovieDataStore
+protocol DetailMovieDataStore
 {
     var detailMovie : MovieModel.Movie2! { get set }
 }
 
-class ShowDetailMovieInteractor: ShowDetailMovieBusinessLogic, ShowDetailMovieDataStore
+class DetailMovieInteractor: DetailMovieBusinessLogic, DetailMovieDataStore
 {
     var detailMovie: MovieModel.Movie2!
     
-    var presenter: ShowDetailMoviePresentationLogic?
-    var worker: ShowDetailMovieWorker?
+    var presenter: DetailMoviePresentationLogic?
+    var worker: DetailMovieWorker?
     
     // MARK: Do something
     
     func showDetailMovie() {
-        let response = ShowDetailMovie.Something.Response(movie: detailMovie)
+        let response = DetailMovie.Something.Response(movie: detailMovie)
         presenter?.presentMovie(response: response)
     }
 }

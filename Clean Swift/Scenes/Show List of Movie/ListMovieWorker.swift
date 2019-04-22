@@ -12,7 +12,7 @@
 
 import UIKit
 
-class ShowListMovieWorker
+class ListMovieWorker
 {
     
     func generateMovieList(param: Params, callBack: @escaping(APIResult<[MovieModel.Movie2]>)->Void) {

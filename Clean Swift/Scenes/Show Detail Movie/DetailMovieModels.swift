@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum ShowDetailMovie
+enum DetailMovie
 {
   // MARK: Use cases
   

@@ -12,21 +12,21 @@
 
 import UIKit
 
-@objc protocol ShowListMovieRoutingLogic
+@objc protocol ListMovieRoutingLogic
 {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
     func routeToDetailMovie()
 }
 
-protocol ShowListMovieDataPassing
+protocol ListMovieDataPassing
 {
-    var dataStore: ShowListMovieDataStore? { get }
+    var dataStore: ListMovieDataStore? { get }
 }
 
-class ShowListMovieRouter: NSObject, ShowListMovieRoutingLogic, ShowListMovieDataPassing
+class ListMovieRouter: NSObject, ListMovieRoutingLogic, ListMovieDataPassing
 {
-    weak var viewController: ShowListMovieViewController?
-    var dataStore: ShowListMovieDataStore?
+    weak var viewController: ListMovieViewController?
+    var dataStore: ListMovieDataStore?
     
     // MARK: Routing
     
@@ -47,7 +47,7 @@ class ShowListMovieRouter: NSObject, ShowListMovieRoutingLogic, ShowListMovieDat
     
     func routeToDetailMovie(){
         let storyboard = UIStoryboard(name: "Movie", bundle: nil)
-        let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailMovieVC") as! ShowDetailMovieViewController
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailMovieVC") as! DetailMovieViewController
         var destinationDS = destinationVC.router!.dataStore!
         passDataToSomewhere(source: dataStore!, destination: &destinationDS)
         navigateToSomewhere(source: viewController!, destination: destinationVC)
@@ -55,14 +55,14 @@ class ShowListMovieRouter: NSObject, ShowListMovieRoutingLogic, ShowListMovieDat
     
     // MARK: Navigation
     
-    func navigateToSomewhere(source: ShowListMovieViewController, destination: ShowDetailMovieViewController)
+    func navigateToSomewhere(source: ListMovieViewController, destination: DetailMovieViewController)
     {
         source.show(destination, sender: nil)
     }
     
     // MARK: Passing data
     
-    func passDataToSomewhere(source: ShowListMovieDataStore, destination: inout ShowDetailMovieDataStore)
+    func passDataToSomewhere(source: ListMovieDataStore, destination: inout DetailMovieDataStore)
     {
         destination.detailMovie = source.detailMovie
     }

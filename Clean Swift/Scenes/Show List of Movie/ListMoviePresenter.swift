@@ -12,31 +12,32 @@
 
 import UIKit
 
-protocol ShowListMoviePresentationLogic
+protocol ListMoviePresenterOutput: class
 {
-    func presentUpcomingMovie(response: MovieModel.ViewModel)
-    func presentNowPlayingMovie(response: MovieModel.ViewModel)
-    func presentDetailMovie(response: MovieModel.ViewModel)
+    func displayUpcomingMovie(response: MovieModel.ViewModel)
+    func displayNowPlayingMovie(response: MovieModel.ViewModel)
+    func displayDetailMovie(response: MovieModel.ViewModel)
 }
 
-class ShowListMoviePresenter: ShowListMoviePresentationLogic
+class ListMoviePresenter: ListMovieInteractorOutput
 {
-    weak var viewController: ShowListMovieDisplayLogic?
+    weak var output: ListMoviePresenterOutput?
     
-    // MARK: Do something
-    
-    func presentUpcomingMovie(response: MovieModel.ViewModel) {
-        let viewModel = MovieModel.ViewModel(listMovie: response.listMovie, movie: nil)
-        viewController?.displayUpcomingMovie(viewModel: viewModel)
-    }
+    // MARK: Presentation Logic
     
     func presentNowPlayingMovie(response: MovieModel.ViewModel) {
         let viewModel = MovieModel.ViewModel(listMovie: response.listMovie, movie: nil)
-        viewController?.displayNowPlayingMovie(viewModel: viewModel)
+        output?.displayNowPlayingMovie(response: viewModel)
+    }
+    
+    func presentUpcomingMovie(response: MovieModel.ViewModel) {
+        let viewModel = MovieModel.ViewModel(listMovie: response.listMovie, movie: nil)
+        output?.displayUpcomingMovie(response: viewModel)
     }
     
     func presentDetailMovie(response: MovieModel.ViewModel) {
         let viewModel = MovieModel.ViewModel(listMovie: nil, movie: response.movie)
-        viewController?.displayDetailMovie(viewModel: viewModel)
+        output?.displayDetailMovie(response: viewModel)
     }
+    
 }
