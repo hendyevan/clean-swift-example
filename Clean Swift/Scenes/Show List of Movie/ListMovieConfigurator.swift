@@ -23,6 +23,8 @@ class ListMovieConfigurator {
         
         let interactor = ListMovieInteractor()
         interactor.output = presenter
+        interactor.worker = ListMovieWorker()
+        router.dataStore = interactor
         
         viewController.output = interactor
         viewController.router = router

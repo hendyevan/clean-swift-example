@@ -14,7 +14,6 @@ import UIKit
 
 class ListMovieWorker
 {
-    
     func generateMovieList(param: Params, callBack: @escaping(APIResult<[MovieModel.Movie2]>)->Void) {
         APIHelper.init("https://api.themoviedb.org/3/").request("discover/movie?", parameters: param, method: .post){ result in
             switch result {

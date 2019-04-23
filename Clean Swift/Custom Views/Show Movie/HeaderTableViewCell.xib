@@ -33,6 +33,9 @@
                     <constraint firstAttribute="trailing" secondItem="wvp-G0-vtV" secondAttribute="trailing" constant="16" id="lBd-E9-gjM"/>
                 </constraints>
             </tableViewCellContentView>
+            <accessibility key="accessibilityConfiguration">
+                <bool key="isElement" value="YES"/>
+            </accessibility>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="headerTitleLabel" destination="wvp-G0-vtV" id="6B9-MF-DOs"/>

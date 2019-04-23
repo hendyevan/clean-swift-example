@@ -28,7 +28,6 @@ protocol ListMovieInteractorOutput {
 
 protocol ListMovieDataStore
 {
-    //var name: String { get set }
     var detailMovie: MovieModel.Movie2? { get set }
 }
 
@@ -37,15 +36,14 @@ class ListMovieInteractor: ListMovieInteractorInput, ListMovieDataStore
     var detailMovie: MovieModel.Movie2?
     
     var output: ListMovieInteractorOutput!
-    var worker: ListMovieWorker?
+    var worker: ListMovieWorker!
     
     // MARK: Do something
     
     func getListMovie() {
         let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
-        worker = ListMovieWorker()
-        worker?.generateMovieList(param: params){ result in
+        worker.generateMovieList(param: params){ result in
             switch result {
             case .success(let movieList):
                 let response = MovieModel.ViewModel(listMovie: movieList, movie: nil)
@@ -60,8 +58,7 @@ class ListMovieInteractor: ListMovieInteractorInput, ListMovieDataStore
     func getNowPlayingMovie() {
         let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
-        worker = ListMovieWorker()
-        worker?.fetchNowPlayingMovie(param: params){ result in
+        worker.fetchNowPlayingMovie(param: params){ result in
             switch result {
             case .success(let movieList):
                 let response = MovieModel.ViewModel(listMovie: movieList, movie: nil)
@@ -75,8 +72,7 @@ class ListMovieInteractor: ListMovieInteractorInput, ListMovieDataStore
     func getUpcomingMovie() {
         let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
-        worker = ListMovieWorker()
-        worker?.fetchUpcomingMovie(param: params){ result in
+        worker.fetchUpcomingMovie(param: params){ result in
             switch result {
             case .success(let movieList):
                 let response = MovieModel.ViewModel(listMovie: movieList, movie: nil)

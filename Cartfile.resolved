@@ -1,3 +1,5 @@
 github "Alamofire/Alamofire" "4.8.2"
+github "Quick/Nimble" "v8.0.1"
+github "Quick/Quick" "v2.1.0"
 github "SwiftyJSON/SwiftyJSON" "4.3.0"
 github "onevcat/Kingfisher" "5.3.1"
