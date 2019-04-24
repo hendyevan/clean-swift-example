@@ -41,7 +41,7 @@ class ListMovieInteractor: ListMovieInteractorInput, ListMovieDataStore
     // MARK: Do something
     
     func getListMovie() {
-        let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
+        let params = MovieModel.Request.init(apiKey: "yourTHEMOVIEDBAPIKey", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
         worker.generateMovieList(param: params){ result in
             switch result {
@@ -56,7 +56,7 @@ class ListMovieInteractor: ListMovieInteractorInput, ListMovieDataStore
     }
     
     func getNowPlayingMovie() {
-        let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
+        let params = MovieModel.Request.init(apiKey: "yourTHEMOVIEDBAPIKey", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
         worker.fetchNowPlayingMovie(param: params){ result in
             switch result {
@@ -70,7 +70,7 @@ class ListMovieInteractor: ListMovieInteractorInput, ListMovieDataStore
     }
     
     func getUpcomingMovie() {
-        let params = MovieModel.Request.init(apiKey: "2280e7e3fb062bd9ef00f3b40a1f8746", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
+        let params = MovieModel.Request.init(apiKey: "yourTHEMOVIEDBAPIKey", language: "en-US", sortBy: "popularity.desc", isAdult: false, includeVideo: false, page: 1).params
         
         worker.fetchUpcomingMovie(param: params){ result in
             switch result {
