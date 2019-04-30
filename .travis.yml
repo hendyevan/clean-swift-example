@@ -1,40 +1,4 @@
-stages:
-  - name: test
-    if: type IN (pull_request)
-  - name: deploy
-    if: tag IS blank and type NOT IN (pull_request)
-  - name: release
-    if: tag IS present
-  - name: report
-
 language: swift
 
 osx_image: xcode10.1
 xcode_project: Clean Swift.xcodeproj
-
-cache:
-  directories:
-    - Carthage
-
-before_install:
-  - bundle install
-  - bundle update fastlane
-  - carthage bootstrap --cache-builds --no-use-binaries --platform iOS
-  
-jobs:
-  include:
-    - stage: test
-      script: bundle exec fastlane test
-    - stage: deploy
-      script: bundle exec fastlane deploy
-      after_success: bundle exec fastlane archive
-    - stage: release
-      script: bundle exec fastlane release
-    - stage: report
-      before_script: bundle exec fastlane run clear_derived_data
-      script: bundle exec fastlane report
-      after_success: #bash <(curl -s https://codecov.io/bash) -J '^Bhinneka$' -D 'Report' -X gcov -X coveragepy
-
-git:
-  depth: false
-  quiet: true
