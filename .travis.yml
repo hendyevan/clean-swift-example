@@ -17,8 +17,8 @@ cache:
   # - cocoapods
 
 before_install:
-  - bundle install
-  - bundle update fastlane
+  #- bundle install
+  #- bundle update fastlane
   # - pod install
 
 jobs:
