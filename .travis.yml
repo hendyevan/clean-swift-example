@@ -13,14 +13,14 @@ osx_image: xcode10.1
 xcode_project: Clean Swift.xcodeproj
 
 cache:
-  - bundler
-  # - cocoapods
+  directories:
+    - Carthage
 
 before_install:
-  #- bundle install
-  #- bundle update fastlane
-  # - pod install
-
+  - bundle install
+  - bundle update fastlane
+  - carthage bootstrap --cache-builds --no-use-binaries --platform iOS
+  
 jobs:
   include:
     - stage: test
