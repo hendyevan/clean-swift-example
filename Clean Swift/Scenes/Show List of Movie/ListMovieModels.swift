@@ -13,58 +13,9 @@
 import UIKit
 import SwiftyJSON
 
-enum MovieModel
+struct MovieModel
 {
     // MARK: Use cases
-    
-    struct Movie : Codable {
-        
-        var vote_count  :Int?
-        var id         :Int?
-        var video               :Bool?
-        var voteAverage         :Double?
-        var title               :String?
-        var popularity          :Double?
-        var poster_path          :String?
-        var original_language    :String?
-        var original_title       :String?
-        
-        
-        //        init(from decoder: Decoder) throws {
-        //            let values = try decoder.container(keyedBy: CodingKeys.self)
-        //
-        //            voteCount  = try values.decode(Int.self, forKey: .voteCount)
-        //            id = try values.decode(Int.self, forKey: .id)
-        //            video = try values.decode(Bool.self, forKey: .video)
-        //            voteAverage = try values.decode(Double.self, forKey: .voteAverage)
-        //            title = try values.decode(String.self, forKey: .title)
-        //            popularity = try values.decode(Double.self, forKey: .popularity)
-        //            posterPath = try values.decode(String.self, forKey: .posterPath)
-        //            originalLanguage = try values.decode(String.self, forKey: .originalLanguage)
-        //            originalTitle = try values.decode(String.self, forKey: .originalTitle)
-        //        }
-        ////
-        //        func encode(to encoder: Encoder) throws {
-        //
-        //        }
-        //
-        //        enum CodingKeys:String,CodingKey
-        //        {
-        //            //will get renamed
-        //            case voteCount = "vote_count"
-        //            //will not get renamed
-        //            case adult
-        //            case id
-        //            case video
-        //            case voteAverage        = ""
-        //            case title
-        //            case popularity
-        //            case posterPath         = "poster_path"
-        //            case originalLanguage   = "original_language"
-        //            case originalTitle      = "original_title"
-        //        }
-        
-    }
     
     struct Movie2 {
         var voteCount           :Int     = 0
@@ -96,6 +47,11 @@ enum MovieModel
         }
     }
     
+    struct Results: Decodable {
+        var results: [Movie]
+        var page: Int
+    }
+    
     struct Request
     {
         var params : Params = Params()
@@ -114,9 +70,47 @@ enum MovieModel
     {
         var listMovie : [Movie2]?
     }
+    
     struct ViewModel
     {
         var listMovie : [Movie2]?
         var movie : Movie2?
     }
+}
+
+
+struct Movie : Decodable {
+    
+    var voteCount: Int
+    var id: Int
+    var video: Bool
+    var voteAverage: Double
+    var title: String
+    var popularity: Double
+    var posterPath: String
+    var originalLanguage: String
+    var originalTitle: String
+    var genreIds: [Int]
+    var backdropPath: String
+    var adult: Bool
+    var overview: String
+    var releaseDate: String
+    
+    enum CodingKeys: String, CodingKey {
+        case voteCount = "vote_count"
+        case id
+        case video
+        case voteAverage        = "vote_average"
+        case title
+        case popularity
+        case posterPath         = "poster_path"
+        case originalLanguage   = "original_language"
+        case originalTitle      = "original_title"
+        case backdropPath       = "backdrop_path"
+        case adult
+        case overview
+        case releaseDate        = "release_date"
+        case genreIds           = "genre_ids"
+    }
+    
 }

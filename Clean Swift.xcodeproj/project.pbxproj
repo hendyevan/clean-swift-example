@@ -19,6 +19,7 @@
 		7962D440226862F5000A87EA /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7962D43E226862F4000A87EA /* Kingfisher.framework */; };
 		7962D441226862F5000A87EA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7962D43F226862F5000A87EA /* Alamofire.framework */; };
 		7973F4D5226DB09300C3D279 /* ListMovieConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973F4D4226DB09300C3D279 /* ListMovieConfigurator.swift */; };
+		797B40A02277F92A0040EAAC /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797B409F2277F92A0040EAAC /* Swinject.framework */; };
 		79AF11F222570FD5006E5502 /* ListMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF11EC22570FD5006E5502 /* ListMoviePresenter.swift */; };
 		79AF11F322570FD5006E5502 /* ListMovieWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF11ED22570FD5006E5502 /* ListMovieWorker.swift */; };
 		79AF11F422570FD5006E5502 /* ListMovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF11EE22570FD5006E5502 /* ListMovieRouter.swift */; };
@@ -97,6 +98,7 @@
 		7962D43F226862F5000A87EA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		7962D447226873DF000A87EA /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Carthage/Build/iOS/SwiftyJSON Framework/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		7973F4D4226DB09300C3D279 /* ListMovieConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieConfigurator.swift; sourceTree = "<group>"; };
+		797B409F2277F92A0040EAAC /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		79AF11EC22570FD5006E5502 /* ListMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviePresenter.swift; sourceTree = "<group>"; };
 		79AF11ED22570FD5006E5502 /* ListMovieWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieWorker.swift; sourceTree = "<group>"; };
 		79AF11EE22570FD5006E5502 /* ListMovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieRouter.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797B40A02277F92A0040EAAC /* Swinject.framework in Frameworks */,
 				7962D440226862F5000A87EA /* Kingfisher.framework in Frameworks */,
 				79F87E72226EB8FD00F48E8C /* SwiftyJSON.framework in Frameworks */,
 				7962D441226862F5000A87EA /* Alamofire.framework in Frameworks */,
@@ -189,6 +192,7 @@
 		7962D43D226862F4000A87EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				797B409F2277F92A0040EAAC /* Swinject.framework */,
 				79F87E70226EB8FD00F48E8C /* Quick.framework */,
 				7962D447226873DF000A87EA /* SwiftyJSON.framework */,
 				79F87E6E226EB8FD00F48E8C /* Nimble.framework */,
@@ -487,6 +491,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 			);
 			name = "Run Script Carthage";
 			outputFileListPaths = (
@@ -495,6 +500,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

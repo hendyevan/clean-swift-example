@@ -19,6 +19,8 @@ enum APIResult<T> {
 
 final class APIHelper: NSObject {
     
+    typealias CompletionBlock<T> = (APIResult<T>) -> Void
+    
     private let baseUrl: String
     private let decoder : JSONDecoder
     
@@ -34,9 +36,9 @@ final class APIHelper: NSObject {
         return Alamofire.SessionManager(serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
     }()
     
-    init(_ baseUrl: String) {
+    init(_ baseUrl: String, _ decoder: JSONDecoder = JSONDecoder()) {
         self.baseUrl = baseUrl
-        self.decoder = JSONDecoder()
+        self.decoder = decoder
     }
     
     func request(_ endPoint: String,
@@ -53,9 +55,10 @@ final class APIHelper: NSObject {
                     print("[js] Response String: \(value)")
                 }
             }
-            //            .responseData { response in
-            //                print(try? JSONDecoder().decode(MovieModel.Movie.self, from: response.data!))
-            //            }
+            .responseData { response in
+                let objectJson = try? self.decoder.decode(MovieModel.Results.self, from: response.data!)
+//                print(objectJson!)
+            }
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
@@ -139,6 +142,32 @@ final class APIHelper: NSObject {
                     print(error)
                     //                    callback(.failure(error as NSError))
                 }
+        }
+    }
+    
+    
+    func call<T>(_ endPoint: String,
+                 parameters: [String: Any]? = nil,
+                 encoding: ParameterEncoding = URLEncoding.httpBody,
+                 headers: [String: String]? = nil,
+                 method: HTTPMethod,
+                 handler: @escaping CompletionBlock<T>) where T: Codable {
+        
+        APIHelper.sessionManager.request(endPoint,
+                                         method: method,
+                                         parameters: parameters,
+                                         encoding: encoding,
+                                         headers: headers).validate().responseJSON { (data) in
+                                            do {
+                                                guard let jsonData = data.data else {
+                                                    //throw AlertMessage(title: "Error", body: "No data")
+                                                    return
+                                                }
+                                                let result = try JSONDecoder().decode(T.self, from: jsonData)
+                                                handler(.success(result))
+                                            } catch {
+                                                handler(.failure(NSError()))
+                                            }
         }
     }
 }

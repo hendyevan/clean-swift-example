@@ -1,0 +1,17 @@
+codecov:
+  notify:
+    require_ci_to_pass: yes
+  token: ee628103-8968-4b31-9973-235fed23e27a
+
+comment: off
+
+coverage:
+  status:
+    patch:
+      default:
+        enabled: no
+        if_not_found: success
+  ignore:
+    - BhinnekaTests/.*
+    - BhinnekaUITests/.*
+    - Pods/.*
