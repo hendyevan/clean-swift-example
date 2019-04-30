@@ -1,4 +1,9 @@
+os: osx
+osx_image: xcode10.1
+branches:
+  only:
+    - master
+cache: bundler
 language: swift
 
-osx_image: xcode10.1
 xcode_project: Clean Swift.xcodeproj
