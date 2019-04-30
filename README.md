@@ -1,2 +1,2 @@
-# clean-swift-example
+# clean swift example
 Sample Clean Architeture swift project
