@@ -22,8 +22,6 @@ env:
     - PROJECT_NAME="Clean Swift.xcodeproj"
     - SCHEME_IOS="Clean_Swift"
     - IOS_SDK=iphonesimulator12.0
-  matrix:
-    - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$SCHEME_IOS" RUN_TESTS="YES" BUILD_EXAMPLE="YES" SDK="$IOS_SDK"
 
 before_install:
   #- brew update
@@ -33,7 +31,7 @@ before_install:
   #- carthage bootstrap --cache-builds --no-use-binaries --platform iOS
   
 script:
-  - xcodebuild -scheme Clean_Swift -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test
+  - xcodebuild -scheme Clean_Swift -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build
 
 git:
   depth: false
