@@ -1,6 +1,6 @@
 # List of required dependencies
 github "Alamofire/Alamofire" ~> 4.8.2
-#github "SwiftyJSON/SwiftyJSON" ~> 4.0
+github "SwiftyJSON/SwiftyJSON" ~> 4.0
 github "onevcat/Kingfisher" ~> 5.3.1
 github "Quick/Quick"
 github "Quick/Nimble"
