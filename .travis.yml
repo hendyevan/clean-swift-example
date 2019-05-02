@@ -34,5 +34,3 @@ before_install:
   - gem install license_finder
   - carthage bootstrap --no-use-binaries --platform iOS
 
-script:
-  - xcodebuild test -project "$PROJECT_NAME" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
