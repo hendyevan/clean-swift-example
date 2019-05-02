@@ -20,7 +20,7 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
     - PROJECT_NAME="Clean Swift.xcodeproj"
-    - SCHEME_IOS="Clean Swift"
+    - SCHEME_IOS="Clean_Swift"
     - IOS_SDK=iphonesimulator12.0
   matrix:
     - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$SCHEME_IOS" RUN_TESTS="YES" BUILD_EXAMPLE="YES" SDK="$IOS_SDK"
@@ -33,8 +33,7 @@ before_install:
   #- carthage bootstrap --cache-builds --no-use-binaries --platform iOS
   
 script:
-  - require 'bundler/setup'
-  - xcodebuild -scheme Clean Swift -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test
+  - xcodebuild -scheme Clean_Swift -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test
 
 git:
   depth: false
