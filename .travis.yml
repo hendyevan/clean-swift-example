@@ -33,7 +33,6 @@ before_install:
   - git submodule update --remote
   - gem install license_finder
   - carthage bootstrap --no-use-binaries --platform iOS
-  - cd Clean Swift && carthage bootstrap --no-use-binaries --platform iOS && cd ..
 
 script:
   - xcodebuild test -project "$PROJECT_NAME" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
