@@ -7,3 +7,33 @@ cache: bundler
 language: swift
 
 xcode_project: Clean Swift.xcodeproj
+
+language: swift
+osx_image: xcode10.1
+
+cache:
+  directories:
+    - Carthage
+    - Clean Swift/Carthage
+
+env:
+  #environment variables
+  global:
+    - LANG=en_US.UTF-8
+    - LC_ALL=en_US.UTF-8
+    - PROJECT_NAME="Clean Swift.xcodeproj"
+    - SCHEME_IOS="Clean Swift"
+    - IOS_SDK=iphonesimulator12.0
+  matrix:
+    - DESTINATION="OS=12.0,name=iPhone X" SCHEME="$SCHEME_IOS" SDK="$IOS_SDK"
+
+before_install:
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+  - git submodule update --remote
+  - gem install license_finder
+  - carthage bootstrap --no-use-binaries --platform iOS
+  - cd Clean Swift && carthage bootstrap --no-use-binaries --platform iOS && cd ..
+
+script:
+  - xcodebuild test -project "$PROJECT_NAME" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
