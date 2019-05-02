@@ -1,5 +1,4 @@
 os: osx
-osx_image: xcode10.1
 branches:
   only:
     - master
@@ -30,15 +29,12 @@ before_install:
   #- brew update
   #- brew outdated carthage || brew upgrade carthage
   #- git submodule update --remote
-  - bundle install
-  - gem install license_finder
-  - carthage bootstrap --cache-builds --no-use-binaries --platform iOS
+  #- gem install license_finder
+  #- carthage bootstrap --cache-builds --no-use-binaries --platform iOS
   
 script:
   - require 'bundler/setup'
-  - set -o pipefail
-  - xcodebuild -version
-  - xcodebuild -showsdks
+  - xcodebuild -scheme Clean Swift -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test
 
 git:
   depth: false
